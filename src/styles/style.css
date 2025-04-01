@@ -1,0 +1,39 @@
+/* Reset default margins/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Search Bar Styling */
+  .search-container {
+    display: flex;
+    padding: 20px;
+    background: #2A5C8A;
+  }
+
+  .search-bar1 {
+    margin: 0px;
+    /* justify-content: flex-start; */
+    width: 100%;
+  }
+
+  .search-bar {
+    justify-content: right;
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Event Grid Layout */
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .event-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+  }

@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Local Event Explorer</title>
-  <link rel="stylesheet" href="#">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Event Explorer</title>
+    <link rel="stylesheet" href="src/styles/style.css">
 </head>
+
 <body>
     <div id="root"></div>
-  <!-- Search Bar -->
-  <div class="search-container">
-    <input type="text" placeholder="City">
-    <input type="date" placeholder="Date">
-    <button>Search</button>
-  </div>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-bar1">
+            <h2>Local Event Explorer</h2>
+        </div>
 
-  <!-- Event Grid (Placeholder) -->
-  <div class="event-grid">
-    <div class="event-card">
-      <img src="#" alt="Event Image">
-      <h3>Event Name</h3>
-      <p>Date: October 15, 2023</p>
-      <p>Venue: City Hall</p>
+        <div class="search-bar">
+            <label for="city">City</label>
+            <input type="text" name="city" placeholder="City">
+            <label for="date">Date</label>
+            <input type="date" name="date" placeholder="Date">
+            <button>Search</button>
+        </div>
+
     </div>
-  </div>
 
-  <script type="module" src="src/index.js"></script>
+    <!-- Event Grid (Placeholder) -->
+    <div class="event-grid">
+        <div class="event-card">
+            <img src="#" alt="Event Image">
+            <h3>Live Concert</h3>
+            <p>Date: October 11, 2023</p>
+            <p>Venue: City Hall</p>
+        </div>
+        <div class="event-card">
+            <img src="#" alt="Event Image">
+            <h3>Football Match</h3>
+            <p>Date: November 12, 2023</p>
+            <p>Venue: City Hall</p>
+        </div>
+        <div class="event-card">
+            <img src="#" alt="Event Image">
+            <h3>Gospel Show</h3>
+            <p>Date: December 25, 2023</p>
+            <p>Venue: City Hall</p>
+        </div>
+    </div>
+
+    <script type="module" src="src/index.js"></script>
 </body>
+
 </html>
