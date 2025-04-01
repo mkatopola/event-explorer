@@ -6,7 +6,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
-  "author": "Moffat Katopola <mkatopola@byupathway.edu>",
+  "author": "Moffat Katopola <moffatkatopola@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.14.4"
