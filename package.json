@@ -1,0 +1,14 @@
+{
+  "name": "event-explorer",
+  "version": "1.0.0",
+  "description": "WDD330 Final Project",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Moffat Katopola <mkatopola@byupathway.edu>",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  }
+}
