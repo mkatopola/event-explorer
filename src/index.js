@@ -6,7 +6,7 @@ const API_KEY = process.env.PUBLIC_TICKETMASTER_API_KEY;
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 console.log(API_KEY); // For debugging purposes, remove in production
 if (!API_KEY) {
-    console.error('API key is not defined. Please set the VITE_TICKETMASTER_API_KEY environment variable.');
+    console.error('API key is not defined. Please set the PUBLIC_TICKETMASTER_API_KEY environment variable.');
 }
 // DOM Elements
 const searchButton = document.getElementById('searchButton');
