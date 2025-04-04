@@ -1,8 +1,8 @@
 {
   "name": "event-explorer",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
+  "description": "WDD 330 Final Project",
+  "author": "Moffat Katopola <moffatkatopola@gmail.com>",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
