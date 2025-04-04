@@ -1,14 +1,13 @@
 {
   "name": "event-explorer",
   "version": "1.0.0",
-  "description": "WDD330 Final Project",
+  "description": "",
+  "author": "",
   "scripts": {
-    "start": "parcel index.html --cache-dir .parcel-cache",
-    "build": "parcel build index.html --cache-dir .parcel-cache"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
-  "author": "Moffat Katopola <moffatkatopola@gmail.com>",
-  "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.14.4"
+    "parcel": "^2.0.0"
   }
 }
