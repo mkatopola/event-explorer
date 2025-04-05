@@ -103,6 +103,91 @@ button:hover {
   margin-bottom: 4px;
 }
 
+/* Event Details Page Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.event-details {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.event-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.event-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.details-section {
+  margin: 25px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.details-section h2 {
+  color: #2a5c8a;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.ticket-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #2a5c8a;
+  color: white !important;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.ticket-button:hover {
+  background: #1d4568;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  color: #2a5c8a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.price-range {
+  margin-top: 15px;
+  padding: 10px;
+  background: #e3f2fd;
+  border-radius: 6px;
+}
+
+.venue-rules {
+  margin-top: 15px;
+  padding: 15px;
+  background: #fff8e1;
+  border-radius: 6px;
+  border-left: 4px solid #ffd54f;
+}
+
+.error-message {
+  color: #dc3545;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .search-container {
