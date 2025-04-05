@@ -5,7 +5,7 @@
   "author": "Moffat Katopola <moffatkatopola@gmail.com>",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html event.html"
   },
   "devDependencies": {
     "buffer": "^6.0.3",

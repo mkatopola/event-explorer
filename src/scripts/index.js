@@ -51,23 +51,45 @@ function showError(message) {
     eventGrid.innerHTML = `<div class="error-message">${message}</div>`;
 }
 
-function displayEvents(events) {
-    if (!events || events.length === 0) {
-        eventGrid.innerHTML = '<p>No events found for this search.</p>';
-        return;
-    }
+// function displayEvents(events) {
+//     if (!events || events.length === 0) {
+//         eventGrid.innerHTML = '<p>No events found for this search.</p>';
+//         return;
+//     }
 
+//     eventGrid.innerHTML = events.map(event => `
+//         <div class="event-card">
+//             ${event.images?.[0]?.url ? 
+//                 `<img src="${event.images[0].url}" alt="${event.name}">` : 
+//                 '<div class="image-placeholder">No Image Available</div>'}
+//             <h3>${event.name}</h3>
+//             <p>Date: ${new Date(event.dates.start.dateTime).toLocaleDateString()}</p>
+//             <p>Venue: ${event._embedded?.venues?.[0]?.name || 'Unknown venue'}</p>
+//             ${event.url ? `<a href="${event.url}" target="_blank" class="event-link">More Info</a>` : ''}
+//         </div>
+//     `).join('');
+// }
+
+// Add this to your existing index.js
+function displayEvents(events) {
     eventGrid.innerHTML = events.map(event => `
-        <div class="event-card">
+        <div class="event-card" data-event-id="${event.id}">
             ${event.images?.[0]?.url ? 
                 `<img src="${event.images[0].url}" alt="${event.name}">` : 
                 '<div class="image-placeholder">No Image Available</div>'}
             <h3>${event.name}</h3>
             <p>Date: ${new Date(event.dates.start.dateTime).toLocaleDateString()}</p>
             <p>Venue: ${event._embedded?.venues?.[0]?.name || 'Unknown venue'}</p>
-            ${event.url ? `<a href="${event.url}" target="_blank" class="event-link">More Info</a>` : ''}
         </div>
     `).join('');
+
+    // Add click handlers to event cards
+    document.querySelectorAll('.event-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const eventId = card.dataset.eventId;
+            window.location.href = `event.html?eventId=${eventId}`;
+        });
+    });
 }
 
 async function handleSearch() {
