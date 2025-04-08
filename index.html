@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Event Explorer</title>
     <link rel="stylesheet" href="./src/styles/style.css">
 </head>
+
 <body>
     <div class="search-container">
         <div class="search-bar1">
@@ -13,22 +15,75 @@
         </div>
 
         <div class="search-bar">
-            <label name="city" for="city">City</label>
-            <input type="text" name="city" placeholder="City" id="cityInput">
-            <label name="date" for="date">Date</label>
-            <input type="date" name="date" id="dateInput">
+            <label for="cityInput">City</label>
+            <input type="text" placeholder="City" id="cityInput">
+            <label for="dateInput">Date</label>
+            <input type="date" id="dateInput">
             <button id="searchButton">Search</button>
         </div>
     </div>
 
+    <!-- Categories Section -->
+    <div class="categories-grid">
+        <h2 class="section-title">Explore Event Categories</h2>
+        <div class="horizontal-grid">
+            <div class="category-card" data-category="art">
+                <h3>🎨 Art & Culture</h3>
+                <p>Discover local galleries and exhibitions</p>
+            </div>
+            <div class="category-card" data-category="music">
+                <h3>🎵 Music & Concerts</h3>
+                <p>Find live performances near you</p>
+            </div>
+            <div class="category-card" data-category="sports">
+                <h3>⚽ Sports & Fitness</h3>
+                <p>Join local games and tournaments</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Events Section -->
+    <div class="featured-events">
+        <h2 class="section-title">Featured Events</h2>
+        <div class="horizontal-grid" id="featuredEvents">
+            <!-- Dynamically populated featured events -->
+        </div>
+    </div>
+
+    <!-- Weather Section -->
+    <div class="weather-section">
+        <h2 class="section-title">Popular Cities Weather</h2>
+        <div class="horizontal-grid" id="weatherGrid">
+            <!-- Dynamically populated weather cards -->
+        </div>
+    </div>
+
+    <!-- Search Results Section -->
     <div id="loading">
         Loading events...
     </div>
 
     <div class="event-grid" id="eventGrid">
-        <!-- Events will be inserted here dynamically -->
+        <!-- Dynamically populated search results -->
     </div>
 
     <script type="module" src="./src/scripts/index.js"></script>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <ul class="footer-grid">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Local Event Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
