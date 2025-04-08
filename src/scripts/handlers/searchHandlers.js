@@ -1,36 +1,21 @@
-import { fetchEvents } from '../api/ticketmaster.js';
-import { displayEvents, showError } from '../dom/eventDisplay.js';
+import { DOM } from "../constants";
+import { fetchEvents } from "../api/ticketmaster";
+import { displayEvents, showError } from "../dom/events";
 
-export function createSearchHandler({ cityInput, dateInput, eventGrid, loadingIndicator }) {
-  return async function handleSearch() {
-    const city = cityInput.value.trim();
-    const date = dateInput.value;
+const handleSearch = async () => {
+  const city = DOM.cityInput.value.trim();
+  const date = DOM.dateInput.value;
 
-    if (!city) {
-      showError('Please enter a city', eventGrid);
-      return;
-    }
+  if (!city) return showError("Please enter a city");
 
-    try {
-      loadingIndicator.style.display = 'block';
-      const response = await fetchEvents(city, date);
-      
-      if (response?._embedded?.events) {
-        displayEvents(response._embedded.events, eventGrid);
-        setupEventCardListeners();
-      } else {
-        showError('No events found for this search', eventGrid);
-      }
-    } catch (error) {
-      showError('Failed to fetch events. Please try again.', eventGrid);
-    } finally {
-      loadingIndicator.style.display = 'none';
-    }
-  };
-}
+  const data = await fetchEvents(city, date);
+  data?._embedded?.events ? 
+    displayEvents(data._embedded.events) : 
+    showError("No events found");
+};
 
-export function setupSearchListeners(searchButton, cityInput, dateInput, handler) {
-  searchButton.addEventListener('click', handler);
-  cityInput.addEventListener('keypress', e => e.key === 'Enter' && handler());
-  dateInput.addEventListener('keypress', e => e.key === 'Enter' && handler());
-}
+export const setupSearchHandlers = () => {
+  DOM.searchButton.addEventListener("click", handleSearch);
+  DOM.cityInput.addEventListener("keypress", e => e.key === "Enter" && handleSearch());
+  DOM.dateInput.addEventListener("keypress", e => e.key === "Enter" && handleSearch());
+};
