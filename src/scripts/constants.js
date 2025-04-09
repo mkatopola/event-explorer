@@ -12,8 +12,16 @@ export const DOM = {
 
 // Configuration and sample data
 export const CONFIG = {
-  API_KEY: process.env.PUBLIC_TICKETMASTER_API_KEY,
-  BASE_URL: "https://app.ticketmaster.com/discovery/v2/events",
+  TICKETMASTER: {
+    API_KEY: process.env.PUBLIC_TICKETMASTER_API_KEY,
+    BASE_URL: "https://app.ticketmaster.com/discovery/v2/events"
+  },
+  OPENWEATHER: {
+    API_KEY: process.env.PUBLIC_OPENWEATHER_API_KEY,
+    BASE_URL: "https://api.openweathermap.org/data/2.5/forecast",
+    ICON_URL: "https://openweathermap.org/img/wn"
+  },
+
   SAMPLE_FEATURED: {
     art: {
       name: "Modern Art Exhibition",
@@ -34,6 +42,7 @@ export const CONFIG = {
       image: "https://example.com/sports.jpg"
     }
   },
+
   SAMPLE_WEATHER: [
     {
       city: "New York",
