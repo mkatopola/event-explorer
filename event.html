@@ -19,16 +19,41 @@
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to main content</a>
-    <div class="container">
-        <main id="main">
-            <div id="eventDetails" class="event-details"></div>
-            <a href="index.html" class="back-button">← Back to Events</a>
-        </main>
-    </div>
-    <script type="module" src="./src/scripts/eventDetailsInit.js"></script>
-
+    <header>
+        <div class="search-container">
+            <div class="search-bar1">
+                <a href="index.html">
+                    <h2>Local Event Explorer</h2>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div id="main">
+                <div id="eventDetails" class="event-details"></div>
+                <a href="index.html" class="back-button">← Back to Home</a>
+            </div>
+        </div>
+        <div id="main" tabindex="-1"></div>
+    </main>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <ul class="footer-grid">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Local Event Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
     <div id="main" tabindex="-1"></div>
+    <script type="module" src="./src/scripts/eventDetailsInit.js"></script>
 </body>
 
 </html>

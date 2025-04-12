@@ -23,7 +23,15 @@ body {
 
 .search-bar1 {
   flex: 1;
+}
+
+.search-bar1 a {
   color: white;
+  text-decoration: none;
+}
+
+.search-bar1 a:hover {
+  text-decoration: underline;
 }
 
 .search-bar {
@@ -119,7 +127,7 @@ button:hover {
 }
 
 /* Event Details Page Styles */
-.container {
+.event-header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -135,6 +143,16 @@ button:hover {
 .event-header {
   text-align: center;
   margin-bottom: 30px;
+}
+
+.event-header {
+  width: 700px;  
+  height: 500px; 
+}
+
+.event-header img {
+  width: 100%;
+  height: 100%; 
 }
 
 .event-image {

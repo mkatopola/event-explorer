@@ -5,8 +5,8 @@
   "description": "WDD 330 Final Project",
   "author": "Moffat Katopola <moffatkatopola@gmail.com>",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html event.html --no-scope-hoist --no-optimize --public-url ./"
+    "start": "parcel index.html --cache-dir .parcel-cache --open",
+    "build": "parcel build index.html event.html --cache-dir .parcel-cache --no-scope-hoist --no-optimize --public-url ./"
   },
   "devDependencies": {
     "@parcel/transformer-inline-string": "^2.9.3",
