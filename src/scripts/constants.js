@@ -10,57 +10,29 @@ export const DOM = {
   eventDetails: document.getElementById("eventDetails")
 };
 
-// Configuration and sample data
+// Configuration
 export const CONFIG = {
   TICKETMASTER: {
     API_KEY: process.env.PUBLIC_TICKETMASTER_API_KEY,
-    BASE_URL: "https://app.ticketmaster.com/discovery/v2/events"
+    BASE_URL: "https://app.ticketmaster.com/discovery/v2/events",
+    FEATURED_PARAMS: {
+      size: 20,
+      sort: "date,asc",
+      startDateTime: new Date().toISOString(),
+      endDateTime: new Date(Date.now() + 92 * 24 * 60 * 60 * 1000).toISOString() // +3 months
+    },
+    MAX_PAST_DAYS: 0,
+    FUTURE_DAYS: 90
   },
   OPENWEATHER: {
     API_KEY: process.env.PUBLIC_OPENWEATHER_API_KEY,
     BASE_URL: "https://api.openweathermap.org/data/2.5/forecast",
-    ICON_URL: "https://openweathermap.org/img/wn"
-  },
-
-  SAMPLE_FEATURED: {
-    art: {
-      name: "Modern Art Exhibition",
-      date: "2025-04-15",
-      venue: "City Art Museum",
-      image: "https://example.com/art.jpg"
-    },
-    music: {
-      name: "Jazz Night Festival",
-      date: "2025-04-20",
-      venue: "Downtown Arena",
-      image: "https://example.com/music.jpg"
-    },
-    sports: {
-      name: "Marathon Championship",
-      date: "2025-04-25",
-      venue: "Central Stadium",
-      image: "https://example.com/sports.jpg"
-    }
-  },
-
-  SAMPLE_WEATHER: [
-    {
-      city: "New York",
-      temp: "12°C",
-      condition: "Partly Cloudy",
-      icon: "⛅"
-    },
-    {
-      city: "London",
-      temp: "8°C",
-      condition: "Rainy",
-      icon: "🌧️"
-    },
-    {
-      city: "Tokyo",
-      temp: "18°C",
-      condition: "Sunny",
-      icon: "☀️"
-    }
-  ]
+    ICON_URL: "https://openweathermap.org/img/wn",
+    CITIES: [
+      "New York", "London", "Tokyo", 
+      "Paris", "Dubai", "Singapore",
+      "Sydney", "Los Angeles", "Berlin",
+      "Rome", "Mumbai", "Toronto"
+    ]
+  }
 };
