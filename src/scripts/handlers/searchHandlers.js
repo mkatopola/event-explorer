@@ -1,4 +1,3 @@
-// src/scripts/handlers/searchHandlers.js
 import { DOM } from "../constants";
 import { fetchEvents } from "../api/ticketmaster";
 import { displayEvents } from "../dom/events";

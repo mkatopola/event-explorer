@@ -6,7 +6,6 @@ import { displayWeather } from "./dom/weather";
 export const initializeApp = () => {
   document.addEventListener("DOMContentLoaded", async () => {
     try {
-      // Verify critical DOM elements exist
       if (!DOM.weatherGrid || !DOM.featuredEvents) {
         throw new Error("Required page elements are missing");
       }
@@ -19,7 +18,6 @@ export const initializeApp = () => {
       setupSearchHandlers();
     } catch (error) {
       console.error("Initialization error:", error);
-      // Show user-facing error message
       if (DOM.eventGrid) {
         DOM.eventGrid.innerHTML = `
           <div class="error">

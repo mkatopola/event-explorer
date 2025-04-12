@@ -1,4 +1,3 @@
-// src/scripts/dom/events.js
 import { DOM, CONFIG } from "../constants";
 import {
   formatLocalDate,
@@ -52,13 +51,13 @@ export const displayEvents = async (events) => {
     document.querySelectorAll(".event-card").forEach((card) => {
       card.addEventListener("click", () => {
         const eventId = card.dataset.eventId;
-        // Use proper path for both dev and production
+        // Using proper path for both dev and production
         window.location.href = `./event.html?eventId=${encodeURIComponent(
           eventId
         )}`;
       });
 
-      // Add keyboard support
+      // Added keyboard support
       card.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           window.location.href = `./event.html?eventId=${encodeURIComponent(

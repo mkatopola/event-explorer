@@ -1,4 +1,3 @@
-// src/scripts/api/ticketmaster.js
 import { DOM, CONFIG } from "../constants";
 import { shuffleArray } from "../utils/helpers";
 import { withRetry } from "../utils/apiHelpers";

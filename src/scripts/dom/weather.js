@@ -1,4 +1,3 @@
-// src/scripts/dom/weather.js
 import { DOM, CONFIG } from "../constants";
 import { getRandomCitiesWeather } from "../api/weather";
 import { showError } from "../utils/helpers";

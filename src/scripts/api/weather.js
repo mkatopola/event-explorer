@@ -1,4 +1,3 @@
-// src/scripts/api/weather.js
 import { CONFIG } from "../constants";
 import { showError } from "../utils/helpers";
 
