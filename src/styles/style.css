@@ -103,6 +103,21 @@ button:hover {
   margin-bottom: 4px;
 }
 
+.event-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
 /* Event Details Page Styles */
 .container {
   max-width: 1200px;
@@ -286,7 +301,6 @@ button:hover {
 }
 
 /* Footer Styles */
-/* Updated Footer Styles */
 .main-footer {
   background: #2a5c8a;
   color: white;
@@ -301,17 +315,17 @@ button:hover {
 
 .footer-grid {
   display: flex;
-  justify-content: space-between; /* Changed from center to space-between */
+  justify-content: space-between;
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%; /* Ensure full width */
+  width: 100%;
 }
 
 .footer-grid li {
-  flex: 1; /* Make items grow equally */
-  text-align: center; /* Center text within each item */
-  padding: 0 10px; /* Add horizontal padding */
+  flex: 1; 
+  text-align: center; 
+  padding: 0 10px;
 }
 
 .footer-grid a {
@@ -319,7 +333,7 @@ button:hover {
   text-decoration: none;
   font-size: 0.95rem;
   transition: opacity 0.3s ease;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap; 
 }
 
 .footer-grid a:hover {
@@ -332,6 +346,76 @@ button:hover {
   font-size: 0.9rem;
   opacity: 0.8;
   margin-top: 20px;
+}
+
+/* Weather Widget */
+.weather-widget {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.weather-main img {
+  width: 60px;
+  height: 60px;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.weather-details div {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.weather-details span {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* Details Grid */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.details-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
 }
 
 /* Responsive Design */
@@ -378,5 +462,3 @@ button:hover {
     border-bottom: none;
   }
 }
-
-/* 0881147816 */

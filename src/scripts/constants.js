@@ -10,48 +10,27 @@ export const DOM = {
   eventDetails: document.getElementById("eventDetails")
 };
 
-// Configuration and sample data
+// API Configuration
 export const CONFIG = {
-  API_KEY: process.env.PUBLIC_TICKETMASTER_API_KEY,
-  BASE_URL: "https://app.ticketmaster.com/discovery/v2/events",
-  SAMPLE_FEATURED: {
-    art: {
-      name: "Modern Art Exhibition",
-      date: "2025-04-15",
-      venue: "City Art Museum",
-      image: "https://example.com/art.jpg"
-    },
-    music: {
-      name: "Jazz Night Festival",
-      date: "2025-04-20",
-      venue: "Downtown Arena",
-      image: "https://example.com/music.jpg"
-    },
-    sports: {
-      name: "Marathon Championship",
-      date: "2025-04-25",
-      venue: "Central Stadium",
-      image: "https://example.com/sports.jpg"
-    }
+  TICKETMASTER: {
+    API_KEY: process.env.PUBLIC_TICKETMASTER_API_KEY,
+    BASE_URL: "https://app.ticketmaster.com/discovery/v2/events",
+    MAX_PAST_DAYS: 0
   },
-  SAMPLE_WEATHER: [
-    {
-      city: "New York",
-      temp: "12°C",
-      condition: "Partly Cloudy",
-      icon: "⛅"
-    },
-    {
-      city: "London",
-      temp: "8°C",
-      condition: "Rainy",
-      icon: "🌧️"
-    },
-    {
-      city: "Tokyo",
-      temp: "18°C",
-      condition: "Sunny",
-      icon: "☀️"
+  OPENWEATHER: {
+    API_KEY: process.env.PUBLIC_OPENWEATHER_API_KEY,
+    CURRENT_WEATHER_URL: "https://api.openweathermap.org/data/2.5/weather",
+    FORECAST_URL: "https://api.openweathermap.org/data/2.5/forecast",
+    ICON_URL: "https://openweathermap.org/img/wn",
+    CITIES: [
+      "New York", "London", "Tokyo", "Paris", 
+      "Dubai", "Singapore", "Sydney", "Los Angeles"
+    ]
+  },
+  ACCESSIBILITY: {
+    ALT_TEXTS: {
+      EVENT: "Event image for",
+      WEATHER: "Weather icon showing"
     }
-  ]
+  }
 };
