@@ -1,23 +1,28 @@
 import { DOM, CONFIG } from "../constants";
 import { fetchWeatherForecast } from "../api/weather";
 
-const createWeatherWidget = (weather) => `
-  <div class="weather-widget">
-    <div class="weather-main">
-      <img src="${CONFIG.OPENWEATHER.ICON_URL}/${weather.weather[0].icon}.png" 
-           alt="${weather.weather[0].main}">
-      <div>
-        <h3>${Math.round(weather.main.temp)}°C</h3>
-        <p>${weather.weather[0].description}</p>
+export const createWeatherWidget = (weather) => {
+  if (!weather) return '<p class="weather-error">Weather data unavailable</p>';
+  
+  return `
+    <div class="weather-widget">
+      <div class="weather-main">
+        <img src="${CONFIG.OPENWEATHER.ICON_URL}/${weather.weather[0].icon}.png" 
+             alt="${weather.weather[0].description}"
+             aria-hidden="true">
+        <div>
+          <h3>${Math.round(weather.main.temp)}°C</h3>
+          <p>${weather.weather[0].main}</p>
+        </div>
+      </div>
+      <div class="weather-details">
+        <div><span>Feels like</span> ${Math.round(weather.main.feels_like)}°C</div>
+        <div><span>Humidity</span> ${weather.main.humidity}%</div>
+        <div><span>Wind</span> ${Math.round(weather.wind.speed)} m/s</div>
       </div>
     </div>
-    <div class="weather-details">
-      <div><span>Feels like</span> ${Math.round(weather.main.feels_like)}°C</div>
-      <div><span>Humidity</span> ${weather.main.humidity}%</div>
-      <div><span>Wind</span> ${Math.round(weather.wind.speed)} m/s</div>
-    </div>
-  </div>
-`;
+  `;
+};
 
 export const displayEventDetails = async (event) => {
   const venue = event._embedded?.venues?.[0] || {};

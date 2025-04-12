@@ -1,32 +1,32 @@
+// src/scripts/handlers/searchHandlers.js
 import { DOM } from "../constants";
 import { fetchEvents } from "../api/ticketmaster";
-import { displayEvents, showError } from "../dom/events";
+import { displayEvents } from "../dom/events";
+import { showError } from "../utils/helpers";
 
 const handleSearch = async () => {
-  const city = DOM.cityInput.value.trim();
-  const date = DOM.dateInput.value;
-
-  if (date && new Date(date) < new Date().setHours(0, 0, 0, 0)) {
-    showError("Please select a current or future date");
-    return;
+  try {
+    DOM.loadingIndicator.style.display = "block";
+    DOM.eventGrid.innerHTML = "";
+    
+    const eventsResponse = await fetchEvents(
+      DOM.cityInput.value, 
+      DOM.dateInput.value
+    );
+    
+    const validEvents = eventsResponse._embedded?.events || [];
+    await displayEvents(validEvents);
+    
+  } catch (error) {
+    showError("Failed to load events: " + error.message, DOM.eventGrid);
+  } finally {
+    DOM.loadingIndicator.style.display = "none";
   }
-
-  if (!city) return showError("Please enter a city");
-
-  const data = await fetchEvents(city, date);
-  data?._embedded?.events
-    ? displayEvents(data._embedded.events)
-    : showError("No events found");
 };
 
 export const setupSearchHandlers = () => {
   DOM.searchButton.addEventListener("click", handleSearch);
-  DOM.cityInput.addEventListener(
-    "keypress",
-    (e) => e.key === "Enter" && handleSearch()
-  );
-  DOM.dateInput.addEventListener(
-    "keypress",
-    (e) => e.key === "Enter" && handleSearch()
-  );
+  DOM.cityInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") handleSearch();
+  });
 };

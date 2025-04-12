@@ -1,27 +1,45 @@
+// src/scripts/api/weather.js
 import { CONFIG } from "../constants";
+import { showError } from "../utils/helpers";
 
-// For event details weather
+const handleWeatherError = (error, context) => {
+  console.error(`Weather Error (${context}):`, error);
+  return null;
+};
+
+// 1. Forecast for Event Details
 export const fetchWeatherForecast = async (lat, lon, eventDate) => {
   try {
     const response = await fetch(
-      `${CONFIG.OPENWEATHER.BASE_URL}?lat=${lat}&lon=${lon}&appid=${CONFIG.OPENWEATHER.API_KEY}&units=metric`
+      `${CONFIG.OPENWEATHER.FORECAST_URL}?lat=${lat}&lon=${lon}&appid=${CONFIG.OPENWEATHER.API_KEY}&units=metric`
     );
     
     if (!response.ok) {
       const errorData = await response.json();
-      console.error('OpenWeather Error:', errorData);
       throw new Error(`Weather error: ${errorData.message}`);
     }
     
     const data = await response.json();
     return findClosestForecast(data.list, eventDate);
   } catch (error) {
-    console.error("Weather forecast error:", error);
-    return null;
+    return handleWeatherError(error, "forecast");
   }
 };
 
-// For city weather cards
+// 2. Random Cities Weather
+export const getRandomCitiesWeather = async () => {
+  try {
+    const randomCities = [...CONFIG.OPENWEATHER.CITIES]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 4);
+
+    return await Promise.all(randomCities.map(fetchCityWeather));
+  } catch (error) {
+    return handleWeatherError(error, "random-cities");
+  }
+};
+
+// 3. City Weather Data
 export const fetchCityWeather = async (cityName) => {
   try {
     const geoResponse = await fetch(
@@ -29,39 +47,45 @@ export const fetchCityWeather = async (cityName) => {
     );
     const [location] = await geoResponse.json();
     
+    if (!location) throw new Error("Location not found");
+    
     const weatherResponse = await fetch(
-      `${CONFIG.OPENWEATHER.BASE_URL}?lat=${location.lat}&lon=${location.lon}&appid=${CONFIG.OPENWEATHER.API_KEY}&units=metric`
+      `${CONFIG.OPENWEATHER.CURRENT_WEATHER_URL}?lat=${location.lat}&lon=${location.lon}&appid=${CONFIG.OPENWEATHER.API_KEY}&units=metric`
     );
     
     const weatherData = await weatherResponse.json();
     return {
       city: cityName,
-      temp: Math.round(weatherData.list[0].main.temp),
-      condition: weatherData.list[0].weather[0].main,
-      icon: weatherData.list[0].weather[0].icon
+      temp: Math.round(weatherData.main.temp),
+      condition: weatherData.weather[0].main,
+      icon: weatherData.weather[0].icon
     };
   } catch (error) {
-    console.error("City weather error:", error);
-    return null;
+    return handleWeatherError(error, "city-weather");
   }
 };
 
-// For random city selection
-export const getRandomCitiesWeather = async () => {
-  const randomCities = [...CONFIG.OPENWEATHER.CITIES]
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 4);
-
-  const weatherPromises = randomCities.map(fetchCityWeather);
-  return (await Promise.all(weatherPromises)).filter(Boolean);
+// 4. Batch Weather Requests
+export const batchFetchWeather = async (coordinatesList) => {
+  try {
+    return await Promise.all(
+      coordinatesList.map(async ({ lat, lon, eventId }) => {
+        const data = await fetchWeatherForecast(lat, lon, Date.now());
+        return { eventId, data };
+      })
+    );
+  } catch (error) {
+    return handleWeatherError(error, "batch-weather");
+  }
 };
 
-// Helper function (no export needed)
+// Helper function
 const findClosestForecast = (forecasts, eventDate) => {
   const targetTime = new Date(eventDate).getTime();
   return forecasts.reduce((closest, current) => {
     const currentDiff = Math.abs(new Date(current.dt_txt).getTime() - targetTime);
-    const closestDiff = Math.abs(new Date(closest.dt_txt).getTime() - targetTime);
-    return currentDiff < closestDiff ? current : closest;
-  });
+    return currentDiff < Math.abs(new Date(closest.dt_txt).getTime() - targetTime) 
+      ? current 
+      : closest;
+  }, forecasts[0]);
 };

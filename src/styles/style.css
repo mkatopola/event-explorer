@@ -103,6 +103,21 @@ button:hover {
   margin-bottom: 4px;
 }
 
+.event-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
 /* Event Details Page Styles */
 .container {
   max-width: 1200px;
@@ -333,25 +348,6 @@ button:hover {
   margin-top: 20px;
 }
 
-/* Weather Badge */
-.weather-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 8px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.weather-badge img {
-  width: 30px;
-  height: 30px;
-}
-
 /* Weather Widget */
 .weather-widget {
   background: #f8f9fa;
@@ -405,6 +401,21 @@ button:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
 }
 
 /* Responsive Design */
