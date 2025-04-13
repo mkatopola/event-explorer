@@ -46,19 +46,19 @@ export const fetchFeaturedEvents = async () => {
   try {
     const params = new URLSearchParams({
       apikey: CONFIG.TICKETMASTER.API_KEY,
-      size: 50,
+      size: 4,
       sort: "date,asc",
       startDateTime: new Date().toISOString(),
-      endDateTime: new Date(Date.now() + 92 * 24 * 60 * 60 * 1000).toISOString()
+      endDateTime: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() // Next 30 days
     });
 
     const response = await fetch(`${CONFIG.TICKETMASTER.BASE_URL}.json?${params}`);
     if (!response.ok) throw new Error("Featured events fetch failed");
     
     const data = await response.json();
-    return shuffleArray(data._embedded?.events || []).slice(0, 4);
+    return data._embedded?.events || [];
   } catch (error) {
-    console.error("Featured events error:", error);
+    console.error("Featured events API error:", error);
     return [];
   }
 };
