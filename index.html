@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' app.ticketmaster.com api.openweathermap.org;
-             img-src 'self' https://openweathermap.org https://*.openweathermap.org 
-                     https://s1.ticketm.net https://images.universe.com 
-                     https://*.ticketm.net data:;
-             style-src 'self' 'unsafe-inline';
-             script-src 'self';
-             font-src 'self';
-             object-src 'none';
-             base-uri 'self';
-             form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' app.ticketmaster.com api.openweathermap.org;
+    img-src 'self' 
+            https://openweathermap.org 
+            https://*.openweathermap.org 
+            https://s1.ticketm.net 
+            https://images.universe.com 
+            https://*.ticketm.net 
+            https://raw.githubusercontent.com  <!-- Add this line -->
+            data:;
+    style-src 'self' 'unsafe-inline';
+    script-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self'">
     <title>Local Event Explorer</title>
     <link rel="stylesheet" href="./src/styles/style.css">
 </head>
@@ -91,6 +96,8 @@
                 </ul>
             </div>
             <div class="copyright">
+                <p> Designed by <Strong>Moffat Katopola</Strong></p>
+                <p>WDD330 - Web Frontend Development</p>
                 <p>&copy; 2024 Local Event Explorer. All rights reserved.</p>
             </div>
         </div>

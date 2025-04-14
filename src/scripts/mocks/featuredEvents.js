@@ -4,20 +4,20 @@ export const mockFeaturedEvents = [
       name: "Summer Music Festival",
       dates: {
         start: {
-          localDate: "2024-07-15",
-          dateTime: "2024-07-15T19:00:00Z"
+          localDate: "2025-04-19",
+          dateTime: "2025-04-19T19:00:00Z"
         }
       },
       images: [
         {
-          url: "./images/summer-festival.jpg",
+          url: "https://raw.githubusercontent.com/mkatopola/event-explorer/main/src/public/images/summer-festival.jpg",
           width: 800
         }
       ],
       _embedded: {
         venues: [
           {
-            name: "Central Park",
+            name: "Central Park", 
             city: { name: "New York" }
           }
         ]
@@ -28,13 +28,13 @@ export const mockFeaturedEvents = [
       name: "Art Gallery Exhibition",
       dates: {
         start: {
-          localDate: "2024-07-20",
-          dateTime: "2024-07-20T10:00:00Z"
+          localDate: "2025-04-27",
+          dateTime: "2025-04-27T10:00:00Z"
         }
       },
       images: [
         {
-          url: "./images/art-gallery-event.jpg", // Local path
+          url: "https://raw.githubusercontent.com/mkatopola/event-explorer/main/src/public/images/art-gallery-event.jpg",
           width: 800
         }
       ],
@@ -52,13 +52,13 @@ export const mockFeaturedEvents = [
       name: "City Basketball Championship",
       dates: {
         start: {
-          localDate: "2024-08-05",
-          dateTime: "2024-08-05T18:30:00Z"
+          localDate: "2025-05-03",
+          dateTime: "2025-05-03T18:30:00Z"
         }
       },
       images: [
         {
-          url: "./images/basketball-event.jpg",
+          url: "https://raw.githubusercontent.com/mkatopola/event-explorer/main/src/public/images/basketball-event.jpg",
           width: 800
         }
       ],
@@ -76,13 +76,13 @@ export const mockFeaturedEvents = [
       name: "Shakespeare in the Park",
       dates: {
         start: {
-          localDate: "2024-09-10",
-          dateTime: "2024-09-10T20:00:00Z"
+          localDate: "2025-05-11",
+          dateTime: "2025-05-11T20:00:00Z"
         }
       },
       images: [
         {
-          url: "./images/shakespeare-event.jpg",
+          url: "https://raw.githubusercontent.com/mkatopola/event-explorer/main/src/public/images/shakespeare-event.jpg",
           width: 800
         }
       ],

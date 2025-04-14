@@ -24,7 +24,18 @@ export const CONFIG = {
     ICON_URL: "https://openweathermap.org/img/wn",
     CITIES: [
       "New York", "London", "Tokyo", "Paris", 
-      "Dubai", "Singapore", "Sydney", "Los Angeles"
+      "Dubai", "Singapore", "Sydney", "Los Angeles", 
+      "Berlin" , "Barcelona", "Rome", "Amsterdam",
+      "Toronto", "Hong Kong", "San Francisco", "Chicago",
+      "Madrid", "Bangkok", "Istanbul", "Mumbai", "Mexico City",
+      "Rio de Janeiro", "Cape Town", "Seoul", "Buenos Aires", "Tel Aviv",
+      "Cairo", "Moscow", "Lisbon", "Vienna", "Zurich", "Blantyre", "Brisbane",
+      "Copenhagen", "Dublin", "Helsinki", "Kuala Lumpur", "Lima", "Manila",
+      "Nairobi", "Oslo", "Prague", "Stockholm", "Tallinn", "Warsaw", "Budapest",
+      "Athens", "Hanoi", "Jakarta", "Santiago", "Colombo", "Lagos", "Accra",
+      "Addis Ababa", "Tunis", "Algiers", "Casablanca", "Abu Dhabi", "Doha", "Lilongwe",
+      "Port Moresby", "Wellington", "Suva", "Apia", "Nassau", "Kingston", "Port-au-Prince",
+      "Havana", "San Juan", "Guatemala City", "Tegucigalpa", "Managua", "Asunción"
     ]
   },
   ACCESSIBILITY: {
