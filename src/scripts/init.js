@@ -1,14 +1,13 @@
+// src/scripts/init.js
 import { setupSearchHandlers } from "./handlers/searchHandlers";
 import { displayFeaturedEvents } from "./dom/featured";
 import { displayWeather } from "./dom/weather";
-import { fetchFeaturedEvents } from "./api/ticketmaster"; // Add this import
 
 export const initializeApp = () => {
   document.addEventListener("DOMContentLoaded", async () => {
     try {
-      // First load featured events
-      const featuredEvents = await fetchFeaturedEvents();
-      await displayFeaturedEvents(featuredEvents);
+      // Load mock featured events directly
+      await displayFeaturedEvents(); // Modified: No parameter needed
       
       // Then load weather
       await displayWeather();
@@ -17,7 +16,6 @@ export const initializeApp = () => {
       setupSearchHandlers();
     } catch (error) {
       console.error("Initialization error:", error);
-      // Show error in featured events section
       DOM.featuredEvents.innerHTML = `
         <div class="error">
           Failed to load featured content. Please refresh.
